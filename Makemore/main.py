@@ -1,0 +1,16 @@
+import bigram_lookup
+import single_layer_nn
+
+def main():
+    words = open('Makemore/names.txt').read().splitlines()
+    bigram_lookup_model = bigram_lookup.BigramLookupModel(27)
+    bigram_lookup_model.learn(words)
+    print(bigram_lookup_model.predict(10))
+
+    single_layer_nn_model = single_layer_nn.SingleLayerNN(27)
+    single_layer_nn_model.learn(words)
+    print(single_layer_nn_model.predict(10))
+
+if __name__ == '__main__':
+    # execute only if run as the entry point into the program
+    main()
