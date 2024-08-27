@@ -3,7 +3,7 @@ import torch.nn.functional as F
 import random
 
 class Linear:
-    def __init__(self, fan_in, fan_out, include_bias=True, generator = torch.Generator().manual_seed(2147483647)):
+    def __init__(self, fan_in, fan_out, include_bias=False, generator = torch.Generator().manual_seed(2147483647)):
         self.W = torch.randn((fan_in, fan_out), generator=generator) / fan_in**0.5
         self.b = torch.zeros(fan_out) if include_bias else None
     
@@ -27,7 +27,7 @@ class BatchNorm1D:
     def __init__(self, size):
         self.bngain = torch.ones((1, size))
         self.bnbias = torch.zeros((1, size))
-        self.bnmean_running = torch.ones((1, size)) 
+        self.bnmean_running = torch.ones((0, size)) 
         self.bnvar_running = torch.ones((1, size))
         self.eps = .00001
 

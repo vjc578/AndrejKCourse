@@ -70,7 +70,7 @@ class BatchNorm:
 
             return anll
     
-        for _ in range(20000):
+        for _ in range(10000):
             # Mini batch size 64
             ix = torch.randint(0, self.X.shape[0], (64, ))
 
