@@ -3,6 +3,7 @@ import single_layer_nn
 import mlp
 import batch_norm
 
+# Test
 def main():
     words = open('Makemore/names.txt').read().splitlines()
     bigram_lookup_model = bigram_lookup.BigramLookupModel(27)
